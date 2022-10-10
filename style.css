@@ -148,13 +148,13 @@ input:checked ~ .bubble::after {
     opacity: 1;
 }
 
-.create-todo .options lable div {
+.create-todo .options label div {
     color: var(--dark);
     font-size: 1.125rem;
     margin-top: 1rem;
 }
 
-.create-todo input [type="text"] {
+.create-todo input[type="submit"] {
     display: block;
     width: 100%;
     font-size: 1.125rem;
