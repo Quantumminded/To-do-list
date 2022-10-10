@@ -4,34 +4,107 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>To do list</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div class="container">
-            <h1>ToDo Lists</h1>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>To do list</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-            <!--form-->
-            <form class="todo-form">
-                <input type="text" class="todo-input" placeholder="Add a Todo ....">
-                <!--add button-->
-                <button type="submit" class="add-button">Add</button>
-            </form>
-            <!--todo list item-->
-            <div class="file-list">
-                <ul class="todo-items">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital@0;1&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
 
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="greeting">
+        <h2 class="title">
+          What's up, <input type="text" id="name" placeholder="Name here" />
+        </h2>
+      </section>
 
-                </ul>
+      <section class="create-todo">
+        <h3>CREATE A TODO</h3>
+
+        <form id="new-todo-form">
+          <h4>What's on your todo list?</h4>
+          <input
+            type="text"
+            name="content"
+            id="content"
+            placeholder="e.g. make a webpage"
+          />
+
+          <h4>Pick a category</h4>
+          <div class="options">
+            <label>
+              <input
+                type="radio"
+                name="category"
+                id="category1"
+                value="business"
+              />
+              <span class="bubble business"></span>
+              <div>Business</div>
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                name="category"
+                id="category2"
+                value="personal"
+              />
+              <span class="bubble personal"></span>
+              <div>Personal</div>
+            </label>
+          </div>
+
+          <input type="submit" value="Add todo" />
+        </form>
+      </section>
+
+      <section class="todo-list">
+        <h3>TODO LIST</h3>
+        <div class="list" id="todo-list">
+          <div class="todo-item done">
+            <label>
+              <input type="checkbox" />
+              <span class="bubble business"></span>
+            </label>
+
+            <div class="todo-content">
+              <input type="text" value="Make a video" readonly />
             </div>
+
+            <div class="actions">
+              <button class="edit">Edit</button>
+              <button class="delete">Delete</button>
+            </div>
+          </div>
+
+          <div class="todo-item">
+            <label>
+              <input type="checkbox" />
+              <span class="bubble personal"></span>
+            </label>
+
+            <div class="todo-content">
+              <input type="text" value="Get Milk" readonly />
+            </div>
+
+            <div class="actions">
+              <button class="edit">Edit</button>
+              <button class="delete">Delete</button>
+            </div>
+          </div>
         </div>
-
-
-        <script src="" async defer></script>
-    </body>
+      </section>
+    </main>
+    <script src="index.js"></script>
+  </body>
 </html>
