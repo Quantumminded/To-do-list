@@ -64,7 +64,7 @@
             </label>
           </div>
 
-          <input type="submit" value="Add todo" />
+          <input type="submit" value="Add todo" onclick="addItem(event)"/>
         </form>
       </section>
 
@@ -78,12 +78,12 @@
             </label>
 
             <div class="todo-content">
-              <input type="text" value="Make a video" readonly />
+              <input type="text" value="Make a video" readonly/>
             </div>
 
             <div class="actions">
               <button class="edit">Edit</button>
-              <button class="delete">Delete</button>
+              <button class="delete" onclick="removeItem()">Delete</button>
             </div>
           </div>
 
@@ -99,12 +99,12 @@
 
             <div class="actions">
               <button class="edit">Edit</button>
-              <button class="delete">Delete</button>
+              <button class="delete" onclick="removeItem()">Delete</button>
             </div>
           </div>
         </div>
       </section>
     </main>
-    <script src="index.js"></script>
+    <script src="vale.js"></script>
   </body>
 </html>
