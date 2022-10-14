@@ -1,21 +1,21 @@
 //ADD TODO ITEM
 //FORM ID new-todo-form 
 function addTodoList (category,value){
-let newTodo= `<div class="todo-item">
+let newTodo = `<div class="todo-item">
 <label>
-  <input type="checkbox" />
-  <span class='bubble ${category}'></span>
+  <input class="checkbox_input" type="checkbox" />
+  <span class='check ${category}'></span>
 </label>
 
 <div class="todo-content">
-  <input type="text" value="${value}" readonly />
+  <input type="text" value="${value}" readonly/>
 </div>
 
 <div class="actions">
   <button class="edit">Edit</button>
   <button class="delete" onclick="removeItem()">Delete</button>
 </div>
-</div>` ;
+</div>`; ;
 
 document.querySelector('#todo-list').innerHTML += newTodo;
 }
