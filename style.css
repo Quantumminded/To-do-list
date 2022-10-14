@@ -1,15 +1,20 @@
 :root {
-    --primary: #EA40A4;
-    --business: #3a82ee;
+    --primary: #019fc3;
+    --primary-hover: #01bce7;
+    --primary-text: #37daff;
+    --business: #2ad000;
     --personal: var(--primary);
-    --light: #eee;
-    --grey: #888;
-    --dark: #313154;
-    --danger: #ff5b57;
+    --light: rgb(1, 6, 17);
+    --grey-white: rgb(236, 236, 236);
+    --dark: #fdfdfd;
+    --danger: #bc0401;
+    --danger-hover: #da0502;
+    --input-background: rgb(39, 38, 45); 
+    --input-background-hover: rgb(74, 73, 79);
 
     --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
-    --business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
+    --business-glow:#5ce1ff ;
     --personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
 }
 
@@ -30,6 +35,7 @@ input:not([type="radio"]):not([type="checkbox"]), button {
 }
 
 
+
 body {
     background: var(--light);
     color: var(--dark);
@@ -37,40 +43,53 @@ body {
 
 section {   
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 }
 
 h3 {
     color: var(--dark);
-    font-size: 1rem;
-    font-weight: 400;
-    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
 }
 
 h4 {
-    color: var(--grey);
-    font-size: 0.875rem;
-    font-weight: 700;
-    margin-bottom:  0.5rem;
+    color: var(--grey-white);
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom:  1rem;
 }
 
 .greeting .title {
     display: flex;
-}
-
-.greeting .title input {
-    margin-left: 00.5rem;
-    flex: 1 1 0%;
-    min-width: 0;
+    flex-direction: column;
 }
 
 .greeting .title,
 .greeting .title input {
+    margin-top: 0.6rem;
     color: var(--dark);
     font-size: 1.5rem;
     font-weight: 700;
+}
+
+.greeting .title input {
+    flex: 1 1 0%;
+    min-width: 0;
+    font-size: 2.6rem;
+    color: var(--primary-text);
+    text-shadow: 1px 1px 8px var(--business-glow)
+}
+
+
+.greeting .title .input-name::placeholder {
+    color: #a5a4a4;
+}
+
+.create-todo {
+    margin-bottom: 3.5rem;
 }
 
 .create-todo input[type="text"] {
@@ -79,7 +98,7 @@ h4 {
     font-size: 1.125rem;
     padding: 1rem 1.5rem;
     color: var(--dark);
-    background-color: #fff;
+    background-color: var(--input-background);
     border-radius: 0.5rem;
     box-shadow: var(--shadow);
     margin-bottom: 1.5rem;
@@ -98,10 +117,14 @@ h4 {
     align-items: center;
     justify-content: center;
     padding: 1.5rem;
-    background-color: #fff;
+    background-color:var(--input-background);;
     border-radius: 0.5rem;
     box-shadow: var(--shadow);
     cursor: pointer;
+}
+
+.create-todo .options label:hover {
+background-color: var(--input-background-hover);
 }
 
 input[type="radio"],
@@ -125,6 +148,7 @@ input[type="checkbox"] {
     box-shadow: var(--personal-glow);
 }
 
+
 .bubble::after {
     content: "";
     display: block;
@@ -140,6 +164,53 @@ input[type="checkbox"] {
 .bubble.personal::after{
     background-color: var(--personal);
     box-shadow: var(--personal-glow);
+}
+
+/* checkbox */
+
+.check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 20%;
+    border: 2px solid var(--business);
+    box-shadow: var(--business-glow);
+}
+
+.check.personal {
+    border-color: var(--personal);
+    box-shadow: var(--personal-glow);
+}
+
+.checkbox_input:checked+.check::after {
+    content: "\2714";
+    color: #fff;
+    transition: 0.2s ease-in-out;
+    background: var(--business);
+   
+}
+.checkbox_input:checked + .check {
+    background: var(--business);
+    box-shadow: var(--business-glow);
+
+}
+
+
+.checkbox_input:checked+ .check.personal::after {
+    content: "\2714";
+    color: #fff;
+    transition: 0.2s ease-in-out;
+    background-color: var(--personal);
+   
+}
+
+
+.checkbox_input:checked + .check.personal {
+    background: var(--personal);
+    box-shadow: var(--personal-glow);
+
 }
 
 input:checked ~ .bubble::after {
@@ -159,7 +230,7 @@ input:checked ~ .bubble::after {
     width: 100%;
     font-size: 1.125rem;
     padding: 1rem 1.5rem;
-    color: #fff;
+    color: var(--grey-white);;
     background-color: var(--primary);
     border-radius: 00.5rem;
     box-shadow: var(--personal-glow);
@@ -168,7 +239,7 @@ input:checked ~ .bubble::after {
 }
 
 .create-todo input[type="submit"]:hover {
-    opacity: 0.75;
+    background-color: var(--primary-hover);
 }
 
 .todo-list .list {
@@ -178,8 +249,8 @@ input:checked ~ .bubble::after {
 .todo-list .todo-item {
     display: flex;
     align-items: center;
-    background-color: #fff;
-    padding: 1rem;
+    background-color: var(--input-background);;
+    padding: 1.2rem;
     border-radius: 0.5rem;
     box-shadow: var(--shadow);
     margin-bottom: 1rem;
@@ -188,6 +259,11 @@ input:checked ~ .bubble::after {
 .todo-item label {
     display: block;
     margin-right: 1rem;
+    cursor: pointer;
+}
+
+.todo-item.done:hover {
+    background-color: var(--input-background-hover);
     cursor: pointer;
 }
 
@@ -207,19 +283,23 @@ input:checked ~ .bubble::after {
 
 .todo-item .actions button {
     display: block;
-    padding: 0.5rem;
+    padding: 0.6rem;
     border-radius: 0.25rem;
     color: #fff;
     cursor: pointer;
     transition: 0.2s ease-in-out;
 }
 
-.todo-item .actions button:hover {
-    opacity: 0.75;
+.todo-item .actions button.edit:hover {
+    background-color: var(--primary-hover);
+}
+
+.todo-item .actions button.delete:hover {
+    background-color: var(--danger-hover);
 }
 
 .todo-item .actions .edit {
-    margin-right: 0.5rem;
+    margin-right: 0.7rem;
     background-color: var(--primary);
 }
 
@@ -229,5 +309,5 @@ input:checked ~ .bubble::after {
 
 .todo-item.done .todo-content input {
     text-decoration: line-through;
-    color: var(--grey);
+    color: var(--grey-white);
 }

@@ -23,7 +23,7 @@
     <main class="app">
       <section class="greeting">
         <h2 class="title">
-          What's up, <input type="text" id="name" placeholder="Name here" />
+          What's up, <input class="input-name" type="text" id="name" placeholder="Name here" />
         </h2>
       </section>
 
@@ -41,7 +41,7 @@
 
           <h4>Pick a category</h4>
           <div class="options">
-            <label>
+            <label class="option-box">
               <input
                 type="radio"
                 name="category"
@@ -52,7 +52,7 @@
               <div>Business</div>
             </label>
 
-            <label>
+            <label >
               <input
                 type="radio"
                 name="category"
@@ -73,8 +73,8 @@
         <div class="list" id="todo-list">
           <div class="todo-item done">
             <label>
-              <input type="checkbox" />
-              <span class="bubble business"></span>
+              <input class="checkbox_input"type="checkbox" />
+              <span class="check business"></span>
             </label>
 
             <div class="todo-content">
@@ -87,10 +87,10 @@
             </div>
           </div>
 
-          <div class="todo-item">
+          <div class="todo-item done">
             <label>
-              <input type="checkbox" />
-              <span class="bubble personal"></span>
+              <input class="checkbox_input" type="checkbox" />
+              <span class="check personal"></span>
             </label>
 
             <div class="todo-content">
