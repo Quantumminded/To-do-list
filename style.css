@@ -1,6 +1,7 @@
 :root {
     --primary: #019fc3;
     --primary-hover: #01bce7;
+    --primary-text: #37daff;
     --business: #2ad000;
     --personal: var(--primary);
     --light: rgb(1, 6, 17);
@@ -13,7 +14,7 @@
 
     --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
-    --business-glow:#08c3ec ;
+    --business-glow:#5ce1ff ;
     --personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
 }
 
@@ -32,6 +33,7 @@ input:not([type="radio"]):not([type="checkbox"]), button {
     background: none;
     cursor: initial;
 }
+
 
 
 body {
@@ -62,19 +64,30 @@ h4 {
 
 .greeting .title {
     display: flex;
+    flex-direction: column;
 }
 
-.greeting .title input {
-    margin-left: 00.5rem;
-    flex: 1 1 0%;
-    min-width: 0;
-}
+
 
 .greeting .title,
 .greeting .title input {
+    margin-top: 0.5rem;
     color: var(--dark);
     font-size: 1.5rem;
     font-weight: 700;
+}
+
+.greeting .title input {
+    flex: 1 1 0%;
+    min-width: 0;
+    font-size: 2.6rem;
+    color: var(--primary-text);
+    text-shadow: 1px 1px 8px var(--business-glow)
+}
+
+
+.greeting .title .input-name::placeholder {
+    color: #a5a4a4;
 }
 
 .create-todo input[type="text"] {
