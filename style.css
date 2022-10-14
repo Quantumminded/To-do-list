@@ -80,7 +80,7 @@ h4 {
     min-width: 0;
     font-size: 2.6rem;
     color: var(--primary-text);
-    text-shadow: 1px 1px 8px var(--business-glow)
+    text-shadow: 1px 1px 8px #019fc3
 }
 
 
