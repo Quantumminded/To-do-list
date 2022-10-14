@@ -43,23 +43,23 @@ body {
 
 section {   
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 }
 
 h3 {
     color: var(--dark);
-    font-size: 1rem;
-    font-weight: 400;
-    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
 }
 
 h4 {
     color: var(--grey-white);
-    font-size: 0.875rem;
-    font-weight: 700;
-    margin-bottom:  0.5rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom:  1rem;
 }
 
 .greeting .title {
@@ -67,11 +67,9 @@ h4 {
     flex-direction: column;
 }
 
-
-
 .greeting .title,
 .greeting .title input {
-    margin-top: 0.5rem;
+    margin-top: 0.6rem;
     color: var(--dark);
     font-size: 1.5rem;
     font-weight: 700;
@@ -88,6 +86,10 @@ h4 {
 
 .greeting .title .input-name::placeholder {
     color: #a5a4a4;
+}
+
+.create-todo {
+    margin-bottom: 3.5rem;
 }
 
 .create-todo input[type="text"] {
@@ -248,7 +250,7 @@ input:checked ~ .bubble::after {
     display: flex;
     align-items: center;
     background-color: var(--input-background);;
-    padding: 1rem;
+    padding: 1.2rem;
     border-radius: 0.5rem;
     box-shadow: var(--shadow);
     margin-bottom: 1rem;
@@ -281,7 +283,7 @@ input:checked ~ .bubble::after {
 
 .todo-item .actions button {
     display: block;
-    padding: 0.5rem;
+    padding: 0.6rem;
     border-radius: 0.25rem;
     color: #fff;
     cursor: pointer;
@@ -297,7 +299,7 @@ input:checked ~ .bubble::after {
 }
 
 .todo-item .actions .edit {
-    margin-right: 0.5rem;
+    margin-right: 0.7rem;
     background-color: var(--primary);
 }
 
