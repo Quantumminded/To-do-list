@@ -14,8 +14,8 @@
 
     --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
-    --business-glow:#5ce1ff ;
-    --personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
+    --business-glow:0px 0px 8px #69e04c ;
+    --personal-glow: 0px 0px 8px #019fc3;
 }
 
 
@@ -119,7 +119,7 @@ h4 {
     padding: 1.5rem;
     background-color:var(--input-background);;
     border-radius: 0.5rem;
-    box-shadow: var(--shadow);
+    box-shadow:  var(--shadow);
     cursor: pointer;
 }
 
