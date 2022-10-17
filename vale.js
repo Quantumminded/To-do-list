@@ -3,8 +3,8 @@
 function addTodoList(category, value) {
   let newTodo = `<div class="todo-item">
 <label>
-  <input type="checkbox" />
-  <span class='bubble ${category}'></span>
+  <input type="checkbox" class="checkbox_input" />
+  <span class='check ${category}'></span>
 </label>
 
 <div class="todo-content">
