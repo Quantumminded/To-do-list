@@ -8,7 +8,7 @@ function addTodoList(category, value) {
 </label>
 
 <div class="todo-content">
-  <input type="text" value="${value}" readonly />
+  <input type="text" value="${value}" readonly/>
 </div>
 
 <div class="actions">
@@ -44,7 +44,6 @@ form.addEventListener('submit', (e) => {
   addTodoList(category, input.value);
   category = '';
 })
-
 
 
 
