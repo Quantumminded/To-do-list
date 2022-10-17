@@ -43,6 +43,9 @@ form.addEventListener('submit', (e) => {
   }
   addTodoList(category, input.value);
   category = '';
+  const content = document.querySelector("#content");
+
+    content.value = "";
 })
 
 
