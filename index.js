@@ -33,7 +33,7 @@ window.addEventListener('load', () => {
     DisplayTodos();
 })
 
-function DisplayTodos () {
+function DisplayTodos() {
     const todoList = document.querySelector('#todo-list');
 
     todoList.innerHTML = '';
@@ -42,12 +42,12 @@ function DisplayTodos () {
         const todoItem = document.createElement('div');
         todoItem.classList.add('todo-item');
 
-        const lable = document.createElement('lable');  
-        const input = document.createElement('input'); 
-        const span = document.createElement('span'); 
-        const content = document.createElement('div'); 
+        const lable = document.createElement('lable');
+        const input = document.createElement('input');
+        const span = document.createElement('span');
+        const content = document.createElement('div');
         const actions = document.createElement('div');
-        const edit = document.createElement('button'); 
+        const edit = document.createElement('button');
         const deleteButton = document.createElement('button');
 
         input.type = 'checkbox';
@@ -74,8 +74,8 @@ function DisplayTodos () {
         actions.appendChild(edit);
         actions.appendChild(deleteButton);
         todoItem.appendChild(lable);
-        todoItem.appendChild(content); 
-        todoItem.appendChild(actions);  
+        todoItem.appendChild(content);
+        todoItem.appendChild(actions);
 
         todoList.appendChild(todoItem);
 
@@ -95,8 +95,8 @@ function DisplayTodos () {
 
             DisplayTodos();
         })
-    
-           
+
+
 
         edit.addEventListener('click', e => {
             const input = content.querySelector('input');
