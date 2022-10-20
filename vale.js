@@ -4,6 +4,21 @@ const input = document.querySelector('#new-todo-form input');
 const categoryOne = document.querySelector('#category1');
 const categoryTwo = document.querySelector('#category2');
 let category = '';
+
+window.addEventListener("load", () => {
+  todos = JSON.parse(localStorage.getItem("todos")) || [];
+  const nameInput = document.querySelector("#name");
+  const form = document.querySelector("#new-todo-form");
+
+  const username = localStorage.getItem("username") || "";
+  nameInput.value = username;
+
+  nameInput.addEventListener("change", (e) => {
+    localStorage.setItem("username", e.target.value);
+  });
+});
+
+
 categoryOne.addEventListener('click', (e) => {
   category = e.target.value;
 });
