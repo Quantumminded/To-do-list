@@ -6,9 +6,9 @@ const categoryTwo = document.querySelector('#category2');
 let category = '';
 
 window.addEventListener("load", () => {
-  todos = JSON.parse(localStorage.getItem("todos")) || [];
-  const nameInput = document.querySelector("#name");
-  const form = document.querySelector("#new-todo-form");
+  //todos = JSON.parse(localStorage.getItem("todos")) || [];
+  nameInput = document.querySelector("#name");
+  //const form = document.querySelector("#new-todo-form");
 
   const username = localStorage.getItem("username") || "";
   nameInput.value = username;
@@ -16,6 +16,8 @@ window.addEventListener("load", () => {
   nameInput.addEventListener("change", (e) => {
     localStorage.setItem("username", e.target.value);
   });
+
+  loadAll();
 });
 
 
@@ -26,7 +28,7 @@ categoryOne.addEventListener('click', (e) => {
 categoryTwo.addEventListener('click', (e) => {
   category = e.target.value;
 });
-//console.log(input)
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   if (!input.value) {
@@ -41,86 +43,75 @@ form.addEventListener('submit', (e) => {
 
 const loadAll = () => {
   for (const [key, value] of Object.entries(localStorage)) {
-    document.querySelector('#todo-list').innerHTML += value;
+    if (value[0] !== '{') {
+      continue;
+    }
+    let todoParams = JSON.parse(value);
+    let todo = createTodo(todoParams.id, todoParams.category, todoParams.value, todoParams.checked)
+    document.querySelector('#todo-list').innerHTML += todo;
   }
 }
 
 
 
-function enableEditAll() {
-  const editBtn = document.querySelectorAll('.edit');
-
-  editBtn.forEach(element =>
-    element.addEventListener('click', (e) => {
-      let parent = e.target.parentElement.parentElement;
-      let input = parent.querySelector('.todo-content input');
-      let oldInputValue = `value='${input.value}'`;
-      input.readOnly = false;
-      input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          input.readOnly = true;
-          let newInputValue = `value='${input.value}'`;
-          let updatedTodo = localStorage.getItem(parent.id).replace(oldInputValue, newInputValue);
-          localStorage.setItem(parent.id, updatedTodo);
-        }
-
-
-      })
-    }))
-}
-
-function enableDeleteAll() {
-  const deleteBtn = document.querySelectorAll('.delete');
-
-  deleteBtn.forEach(element =>
-    element.addEventListener('click', (e) => {
-      localStorage.removeItem(e.target.parentElement.parentElement.id);
-      e.target.parentElement.parentElement.remove();
-
-    }))
-}
-
-
 //ADD TODO ITEM TO THE LIST
 //FORM ID new-todo-form 
 function addTodoList(category, value) {
-  let id = Date.now();
-  let newTodo = createTodo(id, category, value);
 
-  localStorage.setItem(id, newTodo);
+  let id = Date.now();
+  let newTodo = createTodo(id, category, value, 'unchecked');
+  localStorage.setItem(id, JSON.stringify({ id: id, category: category, value: value, checked: 'unchecked' }))
   document.querySelector('#todo-list').innerHTML += newTodo;
-  enableDeleteAll();
-  enableEditAll();
 }
 
-function createTodo(id, category, value) {
-  // const checkbox = document.querySelector('.checkbox_input')
-  // const handleClick = ()=>{ console.log(checkbox) }
-  
-  // checkbox.addEventListener('click', ()=>{ console.log(checkbox)})
-  // console.log(checkbox)
+function createTodo(id, category, value, checked) {
 
   return `<div class='todo-item' id='${id}'>
   <label>
-    <input id="checkbox" type='checkbox' class='checkbox_input' />
+    <input id="checkbox" type='checkbox' class='checkbox_input' onclick="setChecked(this)" ${checked}/>
     <span class='check ${category}'></span>
   </label>
   <div class='todo-content'>
-    <input type="text" value='${value}' readonly/>
+    <input type="text" value='${value}' onkeydown="stopEdit(this)" readonly="true""/>
   </div>
   <div class='actions'>
-    <button class='edit'>Edit</button>
-    <button class='delete'>Delete</button>
+    <button class='edit' onclick="editTodo(this)">Edit</button>
+    <button class='delete' onclick="deleteTodo(this)">Delete</button>
   </div>
   </div>`;
 }
 
+function deleteTodo(e) {
+  localStorage.removeItem(e.parentElement.parentElement.id);
+  e.parentElement.parentElement.remove();
+}
+
+const editTodo = (e) => {
+  let input = e.parentElement.parentElement.querySelector('.todo-content input');
+  input.readOnly = false;
+}
+
+const stopEdit = (e) => {
+  if (window.event.key === 'Enter') {
+    e.readOnly = true;
+    let oldTodo = JSON.parse(localStorage.getItem(e.parentElement.parentElement.id));
+    let UpdatedTodo = { ...oldTodo, "value": oldTodo.value = e.value }
+    localStorage.setItem(e.parentElement.parentElement.id, JSON.stringify(UpdatedTodo));
+
+  }
 
 
+}
 
-window.addEventListener('load', e => {
-  loadAll();
-  enableDeleteAll();
-  enableEditAll();
-});
+const setChecked = (e) => {
+  let checked = e.checked ? 'checked' : 'unchecked';
+
+  let todoId = e.parentElement.parentElement.id;
+  let oldTodo = JSON.parse(localStorage.getItem(todoId));
+  let updatedTodo = { ...oldTodo, 'checked': checked };
+  console.log(updatedTodo)
+  localStorage.setItem(todoId, JSON.stringify(updatedTodo));
+
+}
+
 
