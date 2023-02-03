@@ -443,13 +443,17 @@ input:checked ~ .bubble::after {
     
     }
 
-    .todo-item .todo-content input {
+    .todo-item .todo-content input[type="textarea"] {
         font-size: 1rem;
     }
 
     .todo-item label {
         margin-right: 0.8rem;
-    
+    }
+
+    .todo-item .actions button {
+   
+        font-size: 12px;
     }
 
 
