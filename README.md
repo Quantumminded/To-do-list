@@ -6,6 +6,9 @@
 - Delete a Todo
 - Todo lists will be store in localstorage
 - Reset button for clearing all localstorage
+
+# Languages
+Vanilla Javascript, CSS
   
 # Website
   
