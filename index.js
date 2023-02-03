@@ -76,7 +76,7 @@ function createTodo(id, category, value, checked) {
     <span class='check ${category}'></span>
   </label>
   <div class='todo-content'>
-    <input type="text" value='${value}' onkeydown="stopEdit(this)" readonly="true""/>
+    <input type="textarea" value='${value}' onkeydown="stopEdit(this)" readonly="true""/>
   </div>
   <div class='actions'>
     <button class='edit' onclick="editTodo(this)">Edit</button>
