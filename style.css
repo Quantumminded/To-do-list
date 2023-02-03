@@ -360,6 +360,7 @@ input:checked ~ .bubble::after {
     display: flex;
     /* display: grid;
     grid-template-columns: 0.1fr 1fr 1fr; */
+
     align-items: center;
     background-color: var(--input-background);;
     padding: 1.2rem;
@@ -380,7 +381,7 @@ input:checked ~ .bubble::after {
 }
 
 .todo-item .todo-content {
-    /* flex:  1 1 0%; */
+    flex:  1 1 0%;
     margin-right: 12px;
  
     
