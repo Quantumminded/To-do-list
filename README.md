@@ -8,7 +8,7 @@
 - Reset button for clearing all localstorage
 
 # Languages
-Vanilla Javascript, CSS
+HTML, CSS, Vanilla Javascript
   
 # Website
   
