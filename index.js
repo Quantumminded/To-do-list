@@ -47,11 +47,13 @@ const loadAll = () => {
   for (const [key, value] of Object.entries(localStorage)) {
     if (value[0] !== '{') {
       continue;
-    }
+    } 
     let todoParams = JSON.parse(value);
     let todo = createTodo(todoParams.id, todoParams.category, todoParams.value, todoParams.checked)
     document.querySelector('#todo-list').innerHTML += todo;
+   
   }
+
 }
 
 
@@ -118,13 +120,20 @@ const setChecked = (e) => {
 
 
 // --> Clear Storage button 
-window.onload = function () {
- document.getElementById("clearButton").onclick = clearStorage;
 
-}
 
 const clearStorage = () => {
   localStorage.clear()
   console.log('clear records')
+
+  setTimeout(() => {
+   document.location.reload();
+ }, 200)
+
+  
 }
+
+let clear = document.getElementById("clearButton");
+
+clear.addEventListener("click", clearStorage);
 
