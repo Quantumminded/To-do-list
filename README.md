@@ -16,7 +16,7 @@ https://to-dos-listss.netlify.app/
 
 # Creators
 
-[Luca](https://github.com/Quantumminded), [Valetina](https://github.com/Valeprogr)&
+[Luca](https://github.com/Quantumminded), [Valetina](https://github.com/Valeprogr) &
 [Ada](https://github.com/AdaN6)
 
 
