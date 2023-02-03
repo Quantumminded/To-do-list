@@ -62,6 +62,13 @@ h4 {
     margin-bottom:  1rem;
 }
 
+.greeting {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .greeting .title {
     display: flex;
     flex-direction: column;
@@ -86,6 +93,19 @@ h4 {
 
 .greeting .title .input-name::placeholder {
     color: #a5a4a4;
+}
+
+.reset-button{
+    padding: 16px 18px;
+    color: white;
+    font-size: 16px;
+    background-color: var(--primary);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button.reset-button:hover {
+    background-color: var(--primary-hover);
 }
 
 .create-todo {
