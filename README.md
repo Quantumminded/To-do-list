@@ -13,9 +13,9 @@ This is a To-do-list application built using HTML, CSS, and Vanilla Javascript. 
 
 # Usage
 
-1. Clone the repository or download the zip file.
-2. Open the index.html file in your browser.
-3. Start adding your to-do items.
+1. Clone the repository or download the zip file
+2. Open the index.html file in your browser
+3. Start adding your to-do items
 
 # Languages
 
